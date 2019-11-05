@@ -48,9 +48,9 @@ class Net(torch.nn.Module):
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
         )
-        self.fc1 = nn.Sequential(nn.Dropout(), nn.Linear(512, 512), nn.ReLU(inplace=True))
+        self.fc1 = nn.Sequential(nn.Dropout(), nn.Linear(8192, 512), nn.ReLU(inplace=True))
         self.fc2 = nn.Sequential(nn.Dropout(), nn.Linear(512, 512), nn.ReLU(inplace=True))
-        self.out = nn.Linear(512, 10)
+        self.out = nn.Linear(512, 2)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
